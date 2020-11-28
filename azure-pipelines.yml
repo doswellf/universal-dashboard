@@ -7,10 +7,19 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
-- powershell: .\src\build.ps1 -Configuration Release
-  displayName: Start Building The Module
+
+- powershell: Install-Module Universal -Scope CurrentUser -Force
+  displayName: Install Universal
   errorActionPreference: continue
 
-- powershell: .\src\UniversalDashboard.UITest\shebang.tests.ps1 -Release -Integration
-  displayName: Start Integration Tests
+- powershell: Install-Module Selenium -Scope CurrentUser -Force
+  displayName: Install Selenium
+  errorActionPreference: continue
+
+- powershell: Install-Module InvokeBuild -Scope CurrentUser -Force
+  displayName: Install InvokeBuild
+  errorActionPreference: continue
+
+- powershell: Invoke-Build -File .\src\build.ps1
+  displayName: Build
   errorActionPreference: continue

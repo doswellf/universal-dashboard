@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Test",
+            "type": "shell",
+            "command": "pwsh -Command ' & { Invoke-Build -File ${workspaceFolder}/src/build.ps1 }' ",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}

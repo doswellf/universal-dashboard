@@ -1,11 +1,21 @@
-# Universal Dashboard 
+# Universal Dashboard
 
-[Documentation](https://docs.universaldashboard.io) | [Licensing](https://marketplace.universaldashboard.io/Pricing) | [Live Preview](https://poshud.com/) | [YouTube Videos](https://www.youtube.com/playlist?list=PL-0mHH7DlSiSZ4ozleNTUSXNkF6dlySVz) | [Forums](https://forums.universaldashboard.io/)
+# Universal Dashboard is now a part of PowerShell Universal. Please submit issues on the [PowerShell Universal](https://github.com/ironmansoftware/powershell-universal) repository.
 
+[![Build Status](https://dev.azure.com/ironmansoftware/universal-dashboard/_apis/build/status/ironmansoftware.universal-dashboard?branchName=master)](https://dev.azure.com/ironmansoftware/universal-dashboard/_build/latest?definitionId=1&branchName=master)
 
-Create beautiful websites and dashboards using only PowerShell
+Create beautiful, interactive websites with PowerShell. Universal Dashboard is part of [PowerShell Universal](https://ironmansoftware.com/powershell-universal/).
 
 ![](/images/splash.png)
+
+## Resources
+
+- [Documentation](https://docs.universaldashboard.io) 
+- [PowerShell Universal Documentation](https://docs.ironmansoftware.com)
+- [Licensing](https://ironmansoftware.com/product/powershell-universal/) 
+- [Live Preview](https://poshud.com/) 
+- [YouTube Videos](https://www.youtube.com/playlist?list=PL-0mHH7DlSiSZ4ozleNTUSXNkF6dlySVz) 
+- [Forums](https://forums.universaldashboard.io/) 
 
 ## License 
 
@@ -13,30 +23,15 @@ The Universal Dashboard project and module are licensed under the [GNU Lesser Ge
 
 ## Install
 
-To install Universal Dashboard, you can use the following PowerShell command. 
-
-```
-Install-Module UniversalDashboard
-```
-
-To install Universal Dashboard Community Edition. you can use the following PowerShell command. 
-
-```
-Install-Module UniversalDashboard.Community
-```
+You can install PowerShell Universal by downloading it from our [Downloads](https://ironmansoftware.com/downloads/) page. 
 
 ## Key Features
 
-- PowerShell module to develop cross-platform, web-based dashboards
-- Built in security using forms and OAuth
+- PowerShell module to develop cross-platform web sites
 - Runs anywhere PowerShell Core and Windows PowerShell are available 
 - Simple syntax to generate client and server side code
-- Generate REST APIs with only PowerShell
 - Extreme customization 
 
-## Build Status
-
-[![Build status](https://ci.appveyor.com/api/projects/status/ng3ye067j04eblwi?svg=true)](https://ci.appveyor.com/project/adamdriscoll/universal-dashboard)
 
 ## Examples
 
@@ -58,40 +53,31 @@ Contributions are always welcome! Please follow the below rules.
 
 - Changes that alter the functionality, add features or fix bugs must have a Pester test validating the change. 
 - Changes that add new parameters or cmdlets must document the cmdlets using or updating a Plaster markdown file. 
-- PRs will not be accepted if they add functionality that would duplicate Enterprise Edition features or that render them inoperable. 
 - Issues should include PowerShell, module and browser version. Logs are preferable. 
 
 ## Building Universal Dashboard
 
-Universal Dashboard is a web application built on .NET Core, ASP.NET Core and React. You will need some build tools to get started. 
+The Universal Dashboard frameworks and components are JavaScript libraries built on React with PowerShell integration.
 
 ### Dependencies
 
-- [.NET Core SDK 2.0+](https://www.microsoft.com/net/download/windows)
 - [Node JS](https://nodejs.org/en/)
+- [InvokeBuild](https://www.powershellgallery.com/packages/InvokeBuild)
 
 ### Building 
 
-To build the Universal Dashboard release build, run `build.ps1 -Configuration Release` from the root source directory. 
-
-### Building and Debugging
-
-Build the UniversalDashboard solution with `dotnet build`. 
+You can build this entire repository by running the build.ps1 script in the root of the src directory.
 
 ```
-dotnet build .\UniversalDashboard.sln
+Set-Location ./src
+Invoke-Build Build
 ```
 
-You can also build the .NET components of UD using Visual Studio 2017. 
+### Running Tests
 
-Run the Webpack dev server. 
+To run tests, you can use the build.ps1 Test task.
 
 ```
-cd .\client
-npm run dev
+Set-Location ./src
+Invoke-Build Test
 ```
-
-When building your dashboard in debug mode, make sure to use the port 10001. The Webpack dev server will listen on port 10000. If you open the dashboard in your browser, use the 10000 port. See the integration tests for examples. 
-
-
-
